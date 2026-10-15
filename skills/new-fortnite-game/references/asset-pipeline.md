@@ -85,7 +85,7 @@ Don't build human characters out of rigid Blender primitives. The director said 
 ## 4. MetaHumans (realistic NPCs)
 Source: https://dev.epicgames.com/documentation/en-us/fortnite/metahuman-overview-in-unreal-editor-for-fortnite
 - Supported and free in UEFN since March 2024.
-- Create the character in **MetaHuman Creator for Unreal Engine** (inside UE 5.6+). The old web app is being discontinued. This needs the free full Unreal Engine install, and the user already has UE 5.8.
+- Create the character in **MetaHuman Creator for Unreal Engine** (inside UE 5.6+). The old web app is being discontinued. This needs the free full Unreal Engine install (Epic Games Launcher → Unreal Engine). Check that the human has it before planning MetaHuman NPCs.
 - Assemble with the **UEFN Export** option. Close UEFN while exporting.
 - In UEFN, open Window (or right-click in the Content Browser) → **MetaHuman Importer**.
 - **Memory:** about **60 MB** each in UEFN, versus about 800 MB–1 GB in full UE. Body and face have 4 LODs each.
@@ -114,7 +114,7 @@ Source: https://dev.epicgames.com/documentation/fortnite/import-from-fab-in-unre
 - **Licences** (https://dev.epicgames.com/documentation/fab/licenses-and-pricing-in-fab):
   - Each listing states its licence. Free listings are usually **CC BY 4.0** (credit the author, link the licence, note your changes) or Fab's **Standard** licence.
   - "Regardless of license type, you must provide attribution to third party assets used on your island when you publish." Use the Creator Portal **Attribution** step and keep `docs/CREDITS.md` in sync.
-- **Browsing Fab with computer use** (the user allows this, through the Epic Games Launcher or fab.com):
+- **Browsing Fab with computer use** (only if the human has turned computer use on and agreed to it; through the Epic Games Launcher or fab.com):
   - Filter by Free and by the UEFN format.
   - **Never click Buy on anything with a price.** "Add to My Library" on a $0 item is fine. Stop and ask if a checkout or payment screen appears.
   - Screenshot each candidate's licence panel and save its URL into CREDITS.

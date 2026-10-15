@@ -4,6 +4,7 @@
 
 ## Human-only steps (start early: some take days)
 - [ ] Fortnite Developer Program enrolment: 18+, a real-money Epic purchase in the last 365 days, tax interview, Hyperwallet (up to 5 business days)
+- [ ] Claude Code tools (the skill's Setup step 0): `/plugin install unreal-engine-skills-for-claude-code@claude-plugins-official`, the `verse` skill, Git + LFS, Python 3; Blender, Pillow and UE 5.6+ only for the art pass
 - [ ] UEFN installed (Epic Games Launcher), project created in `Documents/Fortnite Projects/<Project>` (not in OneDrive)
 - [ ] Project Settings: **Python Editor Scripting** and **UEFN MCP Toolsets** ticked; editor restarted
 - [ ] `.mcp.json` in the project root; Claude Code started there; `/mcp` shows `unreal-mcp`

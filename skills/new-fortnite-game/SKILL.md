@@ -14,7 +14,7 @@ The idea passed in: **$ARGUMENTS**
 - **The idea is the pitch.** Fill gaps with sensible defaults and ask only what blocks the GDD (at most 3 questions, e.g. player count, solo vs teams, round length).
 - Run step 0 (the rules check) on it first. If it breaks a rule, say so and offer the closest publishable version before any design work.
 - Draft `docs/GDD.md` from it and get the human's OK. Then go through the Workflow phases **one at a time**, each ending with a human playtest. Never try to build the whole island in one pass.
-- If the current folder isn't a UEFN project yet (no `.uefnproject`), start with Setup.
+- If the current folder isn't a UEFN project yet (no `.uefnproject`), start with Setup, beginning with the tools check (step 0). You can write the GDD while the human installs things.
 - Pick a short uppercase log tag from the island name (e.g. `ZOMBIEFARM`) and use it in place of `MYGAME` everywhere: templates, log patterns, the self-test.
 
 ## Background and references
@@ -33,7 +33,9 @@ Load the `references/` files when you reach that phase. Facts were researched on
 | `references/resources.md` | Docs, community libraries, what to avoid |
 | `templates/` | Bootstrapping a new project (CLAUDE.md, docs, Verse skeletons, tools, reviewer agent) |
 
-**Companion skill:** for deep Verse language and API detail, install Magnus Enebakk's `verse` skill: `git clone https://github.com/magnusenebakk-epic/verse-skill ~/.claude/skills/verse`. It targets UEFN 42.30, and the author appears to be Epic staff (unconfirmed). This skill covers the workflow; that one covers the language.
+**Companion skills** (installed in Setup step 0): this skill covers the workflow. They cover the rest:
+- Epic's `unreal-engine-skills-for-claude-code` plugin. Load its `unreal-mcp` skill before your first MCP call. It's written for full Unreal, so where it and this skill disagree about UEFN, this skill wins.
+- Magnus Enebakk's `verse` skill, for deep Verse language and API detail. It targets UEFN 42.30, and the author appears to be Epic staff (unconfirmed).
 
 ## Step 0: the rules check (before any design work)
 Fortnite moderates every island. Check the pitch against the Developer Rules first (publishing.md section 1):
@@ -82,13 +84,26 @@ Fortnite moderates every island. Check the pitch against the Developer Rules fir
 13. **Show progress as images.** After each batch, show the human the key screenshot or contact sheet. Publish reports (pre-publish check, analytics review, balance) as an Artifact.
 
 ## Setup (once per machine and project)
+0. **Tools check.** Check what's installed (`where`/`--version`, and the skills list in your context). For each missing item, give the human the exact command and wait. Slash commands like `/plugin install` can only be typed by the human.
+   | Tool | Needed for | Install |
+   |---|---|---|
+   | Epic Games Launcher + UEFN, a Fortnite account | Everything | https://store.epicgames.com/download → Library → install **Unreal Editor for Fortnite** |
+   | Epic's Unreal Engine skills plugin (`unreal-mcp`, `unreal-skill`, `create-toolset`) | Correct use of the editor MCP: list → describe → call, safety rules | `/plugin install unreal-engine-skills-for-claude-code@claude-plugins-official`, then restart Claude Code |
+   | `verse` skill (Magnus Enebakk) | Verse language and API detail | `git clone https://github.com/magnusenebakk-epic/verse-skill ~/.claude/skills/verse` |
+   | Git + Git LFS | Version control for the Git path (step 5) | https://git-scm.com (Git for Windows includes LFS), then `git lfs install` |
+   | Python 3 (`py` launcher) | `tools/gen_tuning.py` (standard library only), `contact_sheet.py` | https://www.python.org/downloads/ or `winget install Python.Python.3.13`; then `py -m pip install --user pillow` for contact sheets |
+   | Blender 4.x *(optional, art pass)* | Headless model scripts in `tools/blender/` | https://www.blender.org/download/ or `winget install BlenderFoundation.Blender`; `blender` must be on PATH |
+   | Blender MCP *(optional, look-dev)* | Interactive modelling | Install `uv` (`winget install astral-sh.uv`), add the addon from https://github.com/ahujasid/blender-mcp in Blender, then `claude mcp add blender -- uvx blender-mcp` |
+   | Unreal Engine 5.6+ *(optional, MetaHumans)* | MetaHuman Creator | Epic Games Launcher → Unreal Engine → Library |
+   | A second Fortnite account or a friend | 2-client playtests | — |
+   Missing optional tools only block their own phase: say which phase, and carry on.
 1. The human installs UEFN and creates the project from a template in `Documents/Fortnite Projects/<Name>`, not in OneDrive. The Feature Examples are worth opening: Verse Device, Gunfight, and Speedway Race with Verse Persistence.
 2. Project Settings → tick **Python Editor Scripting** and **UEFN MCP Toolsets**, then restart UEFN. The server starts with the editor; only an editor restart stops it. [?] Some accounts report these settings missing (beta access). If so, stop and tell the human.
 3. Put `.mcp.json` in the project root:
    ```json
    { "mcpServers": { "unreal-mcp": { "type": "http", "url": "http://127.0.0.1:8000/mcp" } } }
    ```
-   Or: `claude mcp add --transport http --scope user unreal-mcp http://127.0.0.1:8000/mcp`. Add the `blender` MCP too if you'll model interactively.
+   Or: `claude mcp add --transport http --scope user unreal-mcp http://127.0.0.1:8000/mcp`. Add the `blender` MCP too if you'll model interactively (step 0).
 4. Start Claude Code **in the project root**. `/mcp` should show `unreal-mcp` connected. After any editor restart, reconnect: the old session silently dies.
 5. Choose version control (publishing.md section 6). Copy `templates/gitignore.template` and `templates/gitattributes.template` for Git, then run `git lfs install`.
 6. Copy the templates in:
