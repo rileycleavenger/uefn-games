@@ -1,0 +1,18 @@
+{
+  "name": "uefn-games",
+  "version": "0.1.0",
+  "description": "Make Fortnite islands in UEFN with Claude Code: pass in a game idea and the new-fortnite-game skill takes it from the rules check and GDD through Verse, Creative devices, assets, multi-client testing and Creator Portal publishing, using Epic's built-in UEFN MCP server.",
+  "author": {
+    "name": "Riley Cleavenger"
+  },
+  "license": "MIT",
+  "keywords": [
+    "fortnite",
+    "uefn",
+    "verse",
+    "gamedev",
+    "unreal-mcp",
+    "creative",
+    "vibe-coding"
+  ]
+}

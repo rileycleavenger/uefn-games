@@ -1,0 +1,10 @@
+# UEFN project + Git (solo setup with Lore turned off). Copy to .gitignore in the project root.
+Saved/
+Intermediate/
+DerivedDataCache/
+.urc/
+*.code-workspace
+build/
+shots/*.png
+__pycache__/
+*.pyc

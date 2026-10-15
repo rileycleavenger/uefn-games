@@ -1,0 +1,6 @@
+name,type,value,note
+RoundSeconds,float,180,Round length in seconds
+BasePoints,int,100,Points for one scoring action
+StreakBonus,int,25,Extra points per earlier action this round
+MaxStreakBonus,int,4,Streak count where the bonus stops growing
+ScoreToWin,int,2500,Score that ends the game

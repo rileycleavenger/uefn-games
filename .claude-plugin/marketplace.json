@@ -1,0 +1,16 @@
+{
+  "name": "uefn-games",
+  "owner": {
+    "name": "Riley Cleavenger"
+  },
+  "metadata": {
+    "description": "Skills for vibe-coding Fortnite islands in UEFN."
+  },
+  "plugins": [
+    {
+      "name": "uefn-games",
+      "source": "./",
+      "description": "Make Fortnite islands in UEFN from a game idea: Verse + Creative devices + Epic's UEFN MCP."
+    }
+  ]
+}
