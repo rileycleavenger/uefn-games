@@ -85,6 +85,7 @@ Fortnite moderates every island. Check the pitch against the Developer Rules fir
 
 ## Setup (once per machine and project)
 0. **Tools check.** Check what's installed (`where`/`--version`, and the skills list in your context). For each missing item, give the human the exact command and wait. Slash commands like `/plugin install` can only be typed by the human.
+
    | Tool | Needed for | Install |
    |---|---|---|
    | Epic Games Launcher + UEFN, a Fortnite account | Everything | https://store.epicgames.com/download → Library → install **Unreal Editor for Fortnite** |
@@ -96,6 +97,7 @@ Fortnite moderates every island. Check the pitch against the Developer Rules fir
    | Blender MCP *(optional, look-dev)* | Interactive modelling | Install `uv` (`winget install astral-sh.uv`), add the addon from https://github.com/ahujasid/blender-mcp in Blender, then `claude mcp add blender -- uvx blender-mcp` |
    | Unreal Engine 5.6+ *(optional, MetaHumans)* | MetaHuman Creator | Epic Games Launcher → Unreal Engine → Library |
    | A second Fortnite account or a friend | 2-client playtests | — |
+
    Missing optional tools only block their own phase: say which phase, and carry on.
 1. The human installs UEFN and creates the project from a template in `Documents/Fortnite Projects/<Name>`, not in OneDrive. The Feature Examples are worth opening: Verse Device, Gunfight, and Speedway Race with Verse Persistence.
 2. Project Settings → tick **Python Editor Scripting** and **UEFN MCP Toolsets**, then restart UEFN. The server starts with the editor; only an editor restart stops it. [?] Some accounts report these settings missing (beta access). If so, stop and tell the human.
